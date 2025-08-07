@@ -23,4 +23,18 @@ public class UsuarioController {
     public ResponseEntity<Usuario> buscarUsuarioPorEmail(@RequestParam String email){
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(email));
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deletarUsuarioPorEmail(@RequestParam String email){
+        usuarioService.deletarUsuarioPorEmail(email);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> atualizarUsuarioPorId(@RequestParam Integer id,
+                                                      @RequestBody Usuario usuario){
+        usuarioService.atualizarUsuarioPorId(id, usuario);
+        return ResponseEntity.ok().build();
+    }
+
 }

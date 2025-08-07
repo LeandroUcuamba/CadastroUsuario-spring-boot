@@ -37,8 +37,10 @@ public class UsuarioService {
                         usuario.getNome() : usuarioEntity.getNome())
                 .telefone(usuario.getTelefone() != null ?
                         usuario.getTelefone() : usuarioEntity.getTelefone())
-                .id(usuario.getId())
+                .id(usuarioEntity.getId())
                 .build();
+
+        repository.saveAndFlush(usuarioAtualizado);
     }
 
     public void atualizarUsuarioPorEmail(String email, String telefone, Usuario usuario){
@@ -48,7 +50,7 @@ public class UsuarioService {
                 .nome(usuario.getNome() != null ?
                         usuario.getNome() : usuarioEntity.getNome())
                 .telefone(telefone)
-                .id(usuario.getId())
+                .id(usuarioEntity.getId())
                 .build();
     }
 }
